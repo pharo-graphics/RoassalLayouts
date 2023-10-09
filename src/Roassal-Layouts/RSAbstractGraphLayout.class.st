@@ -219,12 +219,12 @@ RSAbstractGraphLayout >> rootNodesFor: aCollection [
 		(self parentsFor: node) isEmpty ]
 ]
 
-{ #category : #hook }
+{ #category : #utilities }
 RSAbstractGraphLayout >> rootNodesFromCycles: shapes [
 	| graph groups  |
 	graph := RSDSMGraph new: shapes size.
 	shapes doWithIndex: [ :shape :index1 |
-		shape outgoingShapes do: [ :otherShape | | index2 |
+		shape outgoingNodes do: [ :otherShape | | index2 |
 			index2 := shapes indexOf: otherShape.
 			"added only when index2 is valid"
 			index2 == 0 ifFalse: [ graph addEdge: index1 to: index2 ].

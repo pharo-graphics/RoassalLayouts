@@ -209,7 +209,7 @@ RSTWalkBasedRegularTreeLayout >> initialize: elements associationEdges: associat
 
 		fathersOfChild := fathers
 			                  at: child
-			                  ifAbsentPut: [ OrderedCollection new ].
+			                  ifAbsentPut: [ OrderedCollection new ]. 
 
 		fathersOfChild add: father.
 
@@ -220,13 +220,10 @@ RSTWalkBasedRegularTreeLayout >> initialize: elements associationEdges: associat
 
 		multipleParents ifFalse: [ children add: child ] ].
 
-	rootNode := roots size > 1 ifTrue: [
-		roots do: [ :each | self assert: (fathers includesKey: each) not "fathers at: each put: { rootBox }" ].
-		
-		RSComposite new
-			in: [ :aRootShape |
-				self childrenOf: aRootShape put: roots asArray ];
-			yourself 
+	rootNode := roots size > 1 ifTrue: [ | rootShape |
+		roots do: [ :each | self assert: (fathers includesKey: each) not ].
+		rootShape := elements anyOne class new.
+		self childrenOf: rootShape put: roots asArray
 	] ifFalse: [ roots anyOne ].
 
 	leaves do: [ :each |

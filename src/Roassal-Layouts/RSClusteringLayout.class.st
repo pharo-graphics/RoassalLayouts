@@ -48,19 +48,19 @@ RSClusteringLayout >> forEachLayout: anObject [
 	forEachLayout := anObject
 ]
 
-{ #category : #hook }
+{ #category : #utilities }
 RSClusteringLayout >> getClusterFor: shapes [
 	| result resultWithGroups |
 	result := OrderedCollection new.
 	shapes do: [ :s | | t |
-		t := s allRecursiveConnectedShapes.
+		t := s allRecursiveConnectedNodes.
 		(result includes: t) 
 			ifFalse: [ result add: t ]
 	].
 
 	resultWithGroups := result
-		collect: [ :coll |(coll asArray sortedAs: #asString) asGroup ]
-		as: RSGroup.
+		collect: [ :coll |(coll asArray sortedAs: #asString) asOrderedCollection ]
+		as: OrderedCollection.
 	^ resultWithGroups
 ]
 

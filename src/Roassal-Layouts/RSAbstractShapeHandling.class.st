@@ -34,5 +34,5 @@ RSAbstractShapeHandling >> shapes [
 
 { #category : #accessing }
 RSAbstractShapeHandling >> shapes: someShapes [
-	shapes := someShapes asGroup
+	shapes := someShapes
 ]

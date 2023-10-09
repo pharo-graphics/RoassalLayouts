@@ -7,26 +7,6 @@ Class {
 	#category : #'Roassal-Layouts-Line'
 }
 
-{ #category : #examples }
-RSVerticalLineLayout class >> example1 [
-	| c |
-	c := self canvasExample.
-	self on: c nodes.
-	c zoomToFit.
-	^ c open
-]
-
-{ #category : #examples }
-RSVerticalLineLayout class >> example2 [
-	| c |
-	c := self canvasExample.
-	self new
-		alignRight;
-		on: c nodes.
-	c zoomToFit.
-	^ c open
-]
-
 { #category : #alignment }
 RSVerticalLineLayout >> alignCenter [
 	"Make the element centered"

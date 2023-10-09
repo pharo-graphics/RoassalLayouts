@@ -77,7 +77,7 @@ RSAbstractRegularTreeLayout >> horizontallyReverse [
 RSAbstractRegularTreeLayout >> horizontallyReverse: shapes [
 	"Horizontally reverse the elements, as well as the attachpoints"
 	| g largeur |
-	g := shapes asGroup.
+	g := shapes.
 	largeur := g extent x.
 	shapes
 		do: [ :el | el translateTo: (largeur - el position x) @ el position y ]
@@ -171,11 +171,11 @@ RSAbstractRegularTreeLayout >> verticallyReverse [
 ]
 
 { #category : #reversing }
-RSAbstractRegularTreeLayout >> verticallyReverse: elements [
+RSAbstractRegularTreeLayout >> verticallyReverse: shapes [
 	"Vertically reverse the elements, as well as the attachpoints"
 	| g hauteur |
-	g := elements asGroup.
+	g := shapes.
 	hauteur := g extent y.
-	elements
+	shapes
 		do: [ :el | el translateTo: el position x @ (hauteur - el position y) ]
 ]

@@ -462,11 +462,10 @@ RSForceBasedLayout >> stepNodeRepulsion [
 	"Handle fixed nodes. Do this after all forces in a step were already applied."
 	quadtree := RSQuadTreeForce withAll: nodes.
 	self accumulate: quadtree.
-	nodes
-		do: [ :each |
-			each isFixed
-				ifTrue: [ each translateTo: each fixPosition ]
-				ifFalse: [ self repulse: each from: quadtree ] ]
+	nodes do: [ :each |
+		each isFixed
+			ifTrue: [ each translateTo: each fixPosition ]
+			ifFalse: [ self repulse: each from: quadtree ] ]
 ]
 
 { #category : #accessing }

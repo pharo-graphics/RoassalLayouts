@@ -40,8 +40,8 @@ RSConditionalLayout >> doExecute: shapes [
 	"Performs the layout"
 
 	| thenShapes elseShapes |
-	thenShapes := (shapes select: if) asGroup.
-	elseShapes := (shapes reject: if) asGroup.
+	thenShapes := shapes select: if.
+	elseShapes := shapes reject: if.
 	thenLayout on: thenShapes.
 	elseLayout on: elseShapes.
 	
@@ -71,13 +71,13 @@ RSConditionalLayout >> if: aOneArgBlockOrSymbol [
 
 { #category : #accessing }
 RSConditionalLayout >> ifConnectedThen: aLayout [
-	self if: [ :shape | shape hasEdges ].
+	self if: [ :shape | shape hasLines ].
 	self then: aLayout
 ]
 
 { #category : #accessing }
 RSConditionalLayout >> ifNotConnectedThen: aLayout [
-	self if: [ :shape | shape hasEdges not ].
+	self if: [ :shape | shape hasLines not ].
 	self then: aLayout
 ]
 

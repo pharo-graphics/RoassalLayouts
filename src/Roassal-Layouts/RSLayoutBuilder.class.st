@@ -39,20 +39,6 @@ Class {
 	#category : #'Roassal-Layouts-Builder'
 }
 
-{ #category : #examples }
-RSLayoutBuilder class >> exampleTidyTree [
-	| canvas notConnected |
-	canvas := RSCanvas new.
-	canvas @ RSCanvasController.
-	notConnected := {self. RSEvent. RSShape }.
-	RSLayout 
-		canvasExampleIn: canvas
-		models: SequenceableCollection withAllSubclasses,
-			Set withAllSubclasses, notConnected.
-	self new tidyTree; on: canvas nodes.
-	^ canvas open.
-]
-
 { #category : #'public - layout' }
 RSLayoutBuilder >> cell [
 	^ layout := RSCellLayout new
