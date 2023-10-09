@@ -21,3 +21,10 @@ Some layouts are
 - Sugiyama
 - Force based
   
+Load
+```st
+Metacello new
+    baseline: 'RoassalLayouts';
+    repository: 'github://pharo-graphics/RoassalLayouts';
+    load.
+```
