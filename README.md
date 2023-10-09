@@ -12,4 +12,12 @@
 
 [*Chat with us on #Roassal*](https://discord.gg/QewZMZa)
 
-Layouts from Roassal
+Layouts from Roassal, they used to be included with roassal repository.
+
+Some layouts are
+- Grid
+- Flow
+- Tree
+- Sugiyama
+- Force based
+  
