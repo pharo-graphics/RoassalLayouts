@@ -3,7 +3,7 @@ TODO
 "
 Class {
 	#name : #RSLayoutTranslator,
-	#superclass : #RSObject,
+	#superclass : #Object,
 	#classInstVars : [
 		'defaultTranslator'
 	],

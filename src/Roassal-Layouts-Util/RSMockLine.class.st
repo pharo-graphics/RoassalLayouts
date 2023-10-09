@@ -3,7 +3,7 @@ TODO
 "
 Class {
 	#name : #RSMockLine,
-	#superclass : #RSObject,
+	#superclass : #Object,
 	#instVars : [
 		'from',
 		'to',

@@ -1,6 +1,6 @@
 Class {
 	#name : #RSClusteringLayoutTest,
-	#superclass : #RSTest,
+	#superclass : #RSLayoutTestCase,
 	#category : #'Roassal-Layouts-Tests'
 }
 

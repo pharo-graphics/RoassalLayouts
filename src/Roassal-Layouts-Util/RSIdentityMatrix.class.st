@@ -3,7 +3,7 @@ TODO
 "
 Class {
 	#name : #RSIdentityMatrix,
-	#superclass : #RSObject,
+	#superclass : #Object,
 	#instVars : [
 		'rows'
 	],

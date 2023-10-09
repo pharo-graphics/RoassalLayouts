@@ -3,7 +3,7 @@ used to navigate between big models, quadtree is used
 "
 Class {
 	#name : #RSQuadTree,
-	#superclass : #RSObject,
+	#superclass : #Object,
 	#instVars : [
 		'rectangle',
 		'soleChild',

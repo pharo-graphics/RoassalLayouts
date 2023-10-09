@@ -16,6 +16,9 @@ BaselineOfRoassalLayouts >> baseline: spec [
 			package: 'Roassal-Layouts';
 			package: 'Roassal-Layouts-Tests';
 			package: 'Roassal-Layouts-Util'.
-		spec group: 'default' with: 'Roassal-Layouts'
+		spec group: 'default' with: #(
+			'Roassal-Layouts'
+			'Roassal-Layouts-Util'
+			'Roassal-Layouts-Tests')
 	].
 ]

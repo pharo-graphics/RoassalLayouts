@@ -3,7 +3,7 @@ The RSMockShape class in Roassal is used for testing and mocking purposes. It pr
 "
 Class {
 	#name : #RSMockShape,
-	#superclass : #RSObject,
+	#superclass : #Object,
 	#instVars : [
 		'position',
 		'weight',
