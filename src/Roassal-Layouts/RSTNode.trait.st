@@ -33,8 +33,28 @@ RSTNode >> connectedLines [
 	^ self explicitRequirement
 ]
 
+{ #category : #accessing }
+RSTNode >> encompassingRectangle [
+	^ self explicitRequirement
+]
+
+{ #category : #accessing }
+RSTNode >> extent [
+	^ self explicitRequirement
+]
+
+{ #category : #accessing }
+RSTNode >> extent: aPoint [
+	self explicitRequirement
+]
+
 { #category : #testing }
 RSTNode >> hasLines [
+	^ self explicitRequirement
+]
+
+{ #category : #accessing }
+RSTNode >> height [
 	^ self explicitRequirement
 ]
 
@@ -60,5 +80,15 @@ RSTNode >> updateLinesOFF [
 
 { #category : #'accessing - lines' }
 RSTNode >> updateLinesON [
+	self explicitRequirement
+]
+
+{ #category : #accessing }
+RSTNode >> width [
+	^ self explicitRequirement
+]
+
+{ #category : #accessing }
+RSTNode >> width: aNumber [
 	self explicitRequirement
 ]

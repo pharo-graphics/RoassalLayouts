@@ -8,18 +8,18 @@ Class {
 RSClusteringLayoutTest >> testBasic [
 
 	| c shapes lb nodes |
-	c := RSCanvas new.
-	shapes := RSBox models: (10 to: 50).
+	c := RSLayoutNode new.
+	shapes := RSLayoutNode models: (10 to: 50).
 	c addAll: shapes.
 
 	RSFlowLayout on: shapes.
 
-	lb := RSLineBuilder line.
+	lb := RSLayoutLineBuilder new.
 	lb shapes: shapes.
 	lb connectFrom: [ :nb | nb // 2 ].
 
 	nodes := c nodes.
-
+	
 	RSConditionalLayout new
 		ifNotConnectedThen: RSGridLayout new;
 		else: (RSClusteringLayout new
@@ -74,13 +74,13 @@ RSClusteringLayoutTest >> testBasic [
 RSClusteringLayoutTest >> testBasic2 [
 
 	| shapes c lb nodes clusters |
-	c := RSCanvas new.
-	shapes := RSBox models: (10 to: 50).
+	c := RSLayoutNode new.
+	shapes := RSLayoutNode models: (10 to: 50).
 	c addAll: shapes.
 
 	RSFlowLayout on: shapes.
 
-	lb := RSLineBuilder line.
+	lb := RSLayoutLineBuilder new.
 	lb shapes: shapes.
 	lb connectFrom: [ :nb | nb // 2 ].
 
@@ -94,13 +94,13 @@ RSClusteringLayoutTest >> testBasic2 [
 RSClusteringLayoutTest >> testBasic3 [
 
 	| c shapes lb nodes clusters |
-	c := RSCanvas new.
-	shapes := RSBox models: (1 to: 50).
+	c := RSLayoutNode new.
+	shapes := RSLayoutNode models: (1 to: 50).
 	c addAll: shapes.
 
 	RSFlowLayout on: shapes.
 
-	lb := RSLineBuilder line.
+	lb := RSLayoutLineBuilder new.
 	lb shapes: shapes.
 	lb connectFrom: [ :nb | nb // 2 ].
 
@@ -113,12 +113,12 @@ RSClusteringLayoutTest >> testBasic3 [
 { #category : #tests }
 RSClusteringLayoutTest >> testCycles [
 	| chars canvas shapes |
-	canvas := RSCanvas new.
+	canvas := RSLayoutNode new.
 	chars := $a to: $e.
-	shapes := RSComposite models: chars forEach: [ :composite :char |
+	shapes := RSLayoutNode models: chars forEach: [ :composite :char |
 		| box label |
-		label := RSLabel text: char.
-		box := RSBox new
+		label := RSLayoutNode text: char.
+		box := RSLayoutNode new
 			position: label position;
 			extent: label extent + 10;
 			yourself.
@@ -131,9 +131,8 @@ RSClusteringLayoutTest >> testCycles [
 		].
 
 	canvas addAll: shapes.
-	RSLineBuilder arrowedLine
+	RSLayoutLineBuilder new
 		canvas: canvas;
-		withVerticalAttachPoint;
 		useAssociations:
 			{$a -> $b.
 			$a -> $e.

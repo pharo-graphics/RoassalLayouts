@@ -33,7 +33,7 @@ RSCircularAroundAVertexLayoutTest >> testRadius [
 	layout := RSCircularAroundAVertexLayout new.
 	layout radius: 1000.
 	layout on: canvas nodes.
-
-	boundingBox := canvas encompassingRectangle.
+	
+	boundingBox := canvas nodes encompassingRectangle.
 	self assert: boundingBox width >  100
 ]

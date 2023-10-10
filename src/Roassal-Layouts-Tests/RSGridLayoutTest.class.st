@@ -47,8 +47,8 @@ RSGridLayoutTest >> testLineItemsCount [
 
 { #category : #tests }
 RSGridLayoutTest >> testLineItemsCountForASingleLineOfShapes [
-	canvas := RSCanvas new.
-	shapes := (1 to: 3) collect: [ :each | RSBox new size: 20 ].
+	canvas := RSLayoutNode new.
+	shapes := (1 to: 3) collect: [ :each | RSLayoutNode new size: 20 ].
 	canvas addAll: shapes.
 	RSGridLayout new
 		gapSize: 10;

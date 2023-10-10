@@ -13,10 +13,10 @@ Class {
 RSLocationTest >> setUp [
 	super setUp.
 
-	shape := RSBox new size: 10 asPoint; position: 0 asPoint.
+	shape := RSLayoutNode new size: 10 asPoint; position: 0 asPoint.
 	shape color: Color blue.
-	target := RSBox new size: 20 asPoint; position: 0 asPoint.
-	canvas := RSCanvas new.
+	target := RSLayoutNode new size: 20 asPoint; position: 0 asPoint.
+	canvas := RSLayoutNode new.
 	canvas add: target; add: shape.
 ]
 
@@ -60,8 +60,8 @@ RSLocationTest >> testBelow [
 { #category : #tests }
 RSLocationTest >> testInComposite [
 	| composite |
-	canvas := RSCanvas new.
-	composite := { target } asShape padding: 5.
+	canvas := RSLayoutNode new.
+	composite := (RSLayoutNode with: { target }) padding: 5.
 	composite position: 10@10.
 	canvas add: composite.
 	canvas add: shape.
@@ -78,8 +78,8 @@ RSLocationTest >> testInComposite [
 { #category : #tests }
 RSLocationTest >> testInComposite2 [
 	| composite |
-	canvas := RSCanvas new.
-	composite := { target. shape} asShape padding: 5.
+	canvas := RSLayoutNode new.
+	composite := (RSLayoutNode with: { target. shape}) padding: 5.
 	composite position: 10@10.
 	target position: 10@10.
 	canvas add: composite.

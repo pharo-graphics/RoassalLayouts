@@ -43,12 +43,12 @@ RSHorizontalTreeLayoutTest >> testBasicWithVerticalGap [
 { #category : #tests }
 RSHorizontalTreeLayoutTest >> testCycles [
 	| chars |
-	canvas := RSCanvas new.
+	canvas := RSLayoutNode new.
 	chars := $a to: $e.
-	shapes := RSComposite models: chars forEach: [ :composite :char |
+	shapes := RSLayoutNode models: chars forEach: [ :composite :char |
 		| box label |
-		label := RSLabel text: char.
-		box := RSBox new
+		label := RSLayoutNode text: char.
+		box := RSLayoutNode new
 			position: label position;
 			extent: label extent + 10;
 			yourself.
@@ -61,9 +61,8 @@ RSHorizontalTreeLayoutTest >> testCycles [
 		].
 
 	canvas addAll: shapes.
-	RSLineBuilder arrowedLine
+	RSLayoutLineBuilder new
 		canvas: canvas;
-		withVerticalAttachPoint;
 		useAssociations:
 			{$a -> $b.
 			$a -> $e.

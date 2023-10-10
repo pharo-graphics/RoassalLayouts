@@ -27,7 +27,7 @@ RSLayoutBuilderTest >> testDefaultLayoutClass [
 { #category : #tests }
 RSLayoutBuilderTest >> testSelectNoneLayout [
 	| shapes |
-	shapes := RSBox models: (1 to: 10).
+	shapes := RSLayoutNode models: (1 to: 10).
 	builder none.
 	self assert: builder layout class equals: RSNoLayout.
 	builder on: shapes.

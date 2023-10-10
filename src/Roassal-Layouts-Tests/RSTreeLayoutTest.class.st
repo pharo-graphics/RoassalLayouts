@@ -7,12 +7,12 @@ Class {
 { #category : #tests }
 RSTreeLayoutTest >> computeTreeWithCycles [
 	| chars |
-	canvas := RSCanvas new.
+	canvas := RSLayoutNode new.
 	chars := $a to: $e.
-	shapes := RSComposite models: chars forEach: [ :composite :char |
+	shapes := RSLayoutNode models: chars forEach: [ :composite :char |
 		| box label |
-		label := RSLabel text: char.
-		box := RSBox new
+		label := RSLayoutNode text: char.
+		box := RSLayoutNode new
 			position: label position;
 			extent: label extent + 10;
 			yourself.
@@ -25,9 +25,8 @@ RSTreeLayoutTest >> computeTreeWithCycles [
 		].
 
 	canvas addAll: shapes.
-	RSLineBuilder arrowedLine
+	RSLayoutLineBuilder new
 		canvas: canvas;
-		withBorderAttachPoint;
 		useAssociations:
 			{$a -> $b.
 			$a -> $e.

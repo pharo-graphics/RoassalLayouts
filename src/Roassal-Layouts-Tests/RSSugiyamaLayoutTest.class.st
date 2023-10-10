@@ -12,8 +12,8 @@ RSSugiyamaLayoutTest >> testBasic [
 { #category : #tests }
 RSSugiyamaLayoutTest >> testOnCycle [
 	canvas nodes copy do: #remove.
-	canvas addAll: ((1 to: 3) collect:  [ :each | RSBox new model: each ]).
-	RSLineBuilder line
+	canvas addAll: ((1 to: 3) collect:  [ :each | RSLayoutNode new model: each ]).
+	RSLayoutLineBuilder new
 		shapes: canvas nodes;
 		canvas: canvas;
 		useAssociations: { 1->2. 2->3. 3->1 }.

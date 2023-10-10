@@ -59,7 +59,7 @@ RSClusteringLayout >> getClusterFor: shapes [
 	].
 
 	resultWithGroups := result
-		collect: [ :coll |(coll asArray sortedAs: #asString) asOrderedCollection ]
+		collect: [ :coll |(coll asArray sortedAs: #asString) as: RSGroup ]
 		as: OrderedCollection.
 	^ resultWithGroups
 ]

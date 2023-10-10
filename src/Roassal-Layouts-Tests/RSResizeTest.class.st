@@ -12,7 +12,7 @@ Class {
 RSResizeTest >> setUp [
 	super setUp.
 	shapes := (1 to: 3) collect: [ :o |
-		RSBox new
+		RSLayoutNode new
 			height: o;
 			width: o + 1;
 			yourself ].

@@ -110,7 +110,7 @@ RSLayout >> executeOnElements: elements [
 	"Execute the layout, myself, on the elements"
 
 	self doInitialize: elements.
-	self doExecute: elements asOrderedCollection.
+	self doExecute: elements asGroup.
 	self doPost: elements
 ]
 
