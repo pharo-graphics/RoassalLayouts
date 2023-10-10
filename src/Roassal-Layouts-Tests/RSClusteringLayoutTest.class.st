@@ -24,7 +24,7 @@ RSClusteringLayoutTest >> testBasic [
 		ifNotConnectedThen: RSGridLayout new;
 		else: (RSClusteringLayout new
 				 clustersLayout: RSFlowLayout new;
-				 forEachLayout: RSTreeLayout new);
+				 forEachLayout: (RSTreeLayout new childrenSortBlock: [:a :b| a model < b model]));
 		on: nodes.
 	self assertIntegerPosition: nodes equals: {
 29 @ 5.
