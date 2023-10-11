@@ -220,10 +220,11 @@ RSTWalkBasedRegularTreeLayout >> initialize: elements associationEdges: associat
 
 		multipleParents ifFalse: [ children add: child ] ].
 
-	rootNode := roots size > 1 ifTrue: [ | rootShape |
+	rootNode := roots size > 1 ifTrue: [
 		roots do: [ :each | self assert: (fathers includesKey: each) not ].
-		rootShape := elements anyOne class new.
-		self childrenOf: rootShape put: roots asArray
+		RSLayoutNode new
+			in: [ :aRootNode | self childrenOf: aRootNode put: roots asArray ];
+			yourself
 	] ifFalse: [ roots anyOne ].
 
 	leaves do: [ :each |

@@ -12,7 +12,8 @@ Class {
 		'children',
 		'model',
 		'connectedLines',
-		'parent'
+		'parent',
+		'properties'
 	],
 	#category : #'Roassal-Layouts-Util'
 }
@@ -197,6 +198,24 @@ RSLayoutNode >> position [
 { #category : #accessing }
 RSLayoutNode >> position: aPoint [
 	position := aPoint
+]
+
+{ #category : #accessing }
+RSLayoutNode >> propertyAt: key [
+	properties ifNil: [ ^ nil ].
+	^ properties at: key
+]
+
+{ #category : #accessing }
+RSLayoutNode >> propertyAt: key ifAbsent: aBlock [
+	properties ifNil: [ ^ aBlock value ].
+	^ properties at: key ifAbsent: aBlock
+]
+
+{ #category : #accessing }
+RSLayoutNode >> propertyAt: key put: anObject [
+	properties ifNil: [ properties := Dictionary new ].
+	^ properties at: key put: anObject
 ]
 
 { #category : #actions }

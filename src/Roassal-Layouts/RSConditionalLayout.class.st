@@ -45,7 +45,7 @@ RSConditionalLayout >> doExecute: shapes [
 	thenLayout on: thenShapes.
 	elseLayout on: elseShapes.
 	
-	clusterLayout on: { thenShapes. elseShapes }.
+	clusterLayout on: { thenShapes. elseShapes } asGroup.
 ]
 
 { #category : #accessing }
