@@ -249,6 +249,16 @@ RSLayoutNode >> translateTo: aPoint [
 	position := aPoint
 ]
 
+{ #category : #'accessing - lines' }
+RSLayoutNode >> updateLinesOFF [
+	"nothing for now"
+]
+
+{ #category : #'accessing - lines' }
+RSLayoutNode >> updateLinesON [
+	"nothing for now"
+]
+
 { #category : #accessing }
 RSLayoutNode >> width [
 	^ extent x
