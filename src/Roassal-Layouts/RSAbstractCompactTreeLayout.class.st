@@ -90,14 +90,15 @@ RSAbstractCompactTreeLayout >> followRightContour: aNode toLayer: anInteger [
 	(self layerOf: aNode) = anInteger ifTrue: [ ^ aNode ].
 	(self layerOf: aNode) > anInteger ifTrue: [ ^ nil ].
 
-	(self rightContourOf: aNode)
-		ifNil: [
-			(self pointerOf: aNode) ifNil: [ ^ nil ] ifNotNil: [
-				^ self
-					  followRightContour: (self pointerOf: aNode)
-					  toLayer: anInteger ] ]
+	^ (self rightContourOf: aNode) ifNil: [
+		(self pointerOf: aNode)
+			ifNil: [ nil ]
+			ifNotNil: [
+				self
+					followRightContour: (self pointerOf: aNode)
+					toLayer: anInteger ] ]
 		ifNotNil: [
-			^ self
+			self
 				  followRightContour: (self rightContourOf: aNode)
 				  toLayer: anInteger ]
 ]
