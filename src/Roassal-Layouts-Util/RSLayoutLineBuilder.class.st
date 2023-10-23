@@ -2,26 +2,27 @@
 Used in tests to create lines, use RSLineBuilder
 "
 Class {
-	#name : #RSLayoutLineBuilder,
-	#superclass : #Object,
+	#name : 'RSLayoutLineBuilder',
+	#superclass : 'Object',
 	#instVars : [
 		'canvas',
 		'nodes'
 	],
-	#category : #'Roassal-Layouts-Util'
+	#category : 'Roassal-Layouts-Util',
+	#package : 'Roassal-Layouts-Util'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSLayoutLineBuilder >> canvas [
 	^ canvas ifNil: [ canvas := nodes anyOne parent ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 RSLayoutLineBuilder >> canvas: aNode [
 	canvas := aNode
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSLayoutLineBuilder >> connectFrom: aBlock [
 	| fromNode |
 	nodes do: [ :n |
@@ -30,7 +31,7 @@ RSLayoutLineBuilder >> connectFrom: aBlock [
 		].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSLayoutLineBuilder >> newLine [
 	| line |
 	line := RSLayoutLine new.
@@ -38,22 +39,22 @@ RSLayoutLineBuilder >> newLine [
 	^ line
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSLayoutLineBuilder >> nodeFor: model [
 	^ self nodes detect: [ :node | node model = model ] ifNone: [ nil ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSLayoutLineBuilder >> nodes [
 	^ nodes ifNil: [ nodes := canvas nodes ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSLayoutLineBuilder >> shapes: aCollection [
 	nodes := aCollection
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSLayoutLineBuilder >> useAssociations: aCollection [
 	^ aCollection do: [ :assoc |
 		self newLine

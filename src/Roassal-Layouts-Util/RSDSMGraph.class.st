@@ -3,30 +3,31 @@ I am a class used to find strong connections beteween objects
 based on https://www.geeksforgeeks.org/strongly-connected-components/
 "
 Class {
-	#name : #RSDSMGraph,
-	#superclass : #Object,
+	#name : 'RSDSMGraph',
+	#superclass : 'Object',
 	#instVars : [
 		'graph',
 		'numberOfVertices'
 	],
-	#category : #'Roassal-Layouts-Util'
+	#category : 'Roassal-Layouts-Util',
+	#package : 'Roassal-Layouts-Util'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 RSDSMGraph class >> new: aNumber [
 	^ self new
 		numberOfVertices: aNumber;
 		yourself
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 RSDSMGraph >> addEdge: anInteger to: anInteger2 [
 	| collection |
 	collection := graph at: anInteger ifAbsentPut: [ OrderedCollection new ].
 	collection add: anInteger2
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSDSMGraph >> computeSCCs [
 	| stack visited gr groups |
 	groups := OrderedCollection new.
@@ -48,7 +49,7 @@ RSDSMGraph >> computeSCCs [
 	^ groups allButLast
 ]
 
-{ #category : #utilties }
+{ #category : 'utilties' }
 RSDSMGraph >> dfsUtil: index visited: visited [
 	visited at: index put: true.
 	index trace.
@@ -58,7 +59,7 @@ RSDSMGraph >> dfsUtil: index visited: visited [
 		 ]
 ]
 
-{ #category : #utilties }
+{ #category : 'utilties' }
 RSDSMGraph >> dfsUtil: index visited: visited groups: groups [
 	| lastGroup |
 	visited at: index put: true.
@@ -73,7 +74,7 @@ RSDSMGraph >> dfsUtil: index visited: visited groups: groups [
 		 ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 RSDSMGraph >> example01 [
 	<script: 'self new example01 inspect'>
 
@@ -88,7 +89,7 @@ RSDSMGraph >> example01 [
 	g printSCCs
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 RSDSMGraph >> example02 [
 	<script: 'self new example02 inspect'>
 
@@ -103,7 +104,7 @@ RSDSMGraph >> example02 [
 	^ g computeSCCs
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RSDSMGraph >> fillOrder: index visited: visited stack: stack [
 	visited at: index put: true.
 	(graph at: index ifAbsent: [ #()]) do: [ :each |
@@ -113,7 +114,7 @@ RSDSMGraph >> fillOrder: index visited: visited stack: stack [
 	stack push: index
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RSDSMGraph >> getTranspose [
 	| g |
 	g := self class new: numberOfVertices.
@@ -124,18 +125,18 @@ RSDSMGraph >> getTranspose [
 	^ g
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RSDSMGraph >> initialize [
 	super initialize.
 	graph := Dictionary new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSDSMGraph >> numberOfVertices: anInteger [
 	numberOfVertices := anInteger
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSDSMGraph >> printSCCs [
 	| stack visited gr |
 	stack := Stack new.

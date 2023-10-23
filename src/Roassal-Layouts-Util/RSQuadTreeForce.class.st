@@ -2,31 +2,32 @@
 TODO
 "
 Class {
-	#name : #RSQuadTreeForce,
-	#superclass : #RSQuadTree,
+	#name : 'RSQuadTreeForce',
+	#superclass : 'RSQuadTree',
 	#instVars : [
 		'charge',
 		'centerOfCharge'
 	],
-	#category : #'Roassal-Layouts-Util'
+	#category : 'Roassal-Layouts-Util',
+	#package : 'Roassal-Layouts-Util'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSQuadTreeForce >> centerOfCharge [
 	^ centerOfCharge
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSQuadTreeForce >> centerOfCharge: aPoint [
 	centerOfCharge := aPoint
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSQuadTreeForce >> charge [
 	^ charge
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSQuadTreeForce >> charge: anObject [
 	charge := anObject
 ]

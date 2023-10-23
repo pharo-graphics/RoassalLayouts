@@ -2,8 +2,8 @@
 used to navigate between big models, quadtree is used
 "
 Class {
-	#name : #RSQuadTree,
-	#superclass : #Object,
+	#name : 'RSQuadTree',
+	#superclass : 'Object',
 	#instVars : [
 		'rectangle',
 		'soleChild',
@@ -13,22 +13,23 @@ Class {
 		'southEastQuad',
 		'isLeaf'
 	],
-	#category : #'Roassal-Layouts-Util'
+	#category : 'Roassal-Layouts-Util',
+	#package : 'Roassal-Layouts-Util'
 }
 
-{ #category : #public }
+{ #category : 'public' }
 RSQuadTree class >> position: aShape [
 	^ aShape position
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 RSQuadTree class >> withAll: aRSGroup [
 	^ self
 		withAll: aRSGroup
 		rectangle: (Rectangle encompassing: (aRSGroup collect: [:each | self position: each ]))
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 RSQuadTree class >> withAll: aRSGroup rectangle: rectangle [
 	| root extent |
 	extent := rectangle extent.
@@ -52,7 +53,7 @@ RSQuadTree class >> withAll: aRSGroup rectangle: rectangle [
 					corner: (extent y + rectangle origin x) @ rectangle corner y) ]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 RSQuadTree >> add: aShape [
 	isLeaf ifTrue: [
 		soleChild
@@ -70,7 +71,7 @@ RSQuadTree >> add: aShape [
 	ifFalse: [ self addChild: aShape ]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 RSQuadTree >> addChild: aShape [
 	| center origin corner position |
 	isLeaf := false.
@@ -110,38 +111,38 @@ RSQuadTree >> addChild: aShape [
 					southEastQuad add: aShape ] ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RSQuadTree >> initialize [
 	super initialize.
 	isLeaf := true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 RSQuadTree >> isLeaf [
 	^ isLeaf
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSQuadTree >> position: aShape [
 	^ self class position: aShape
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSQuadTree >> rectangle [
 	^ rectangle
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSQuadTree >> rectangle: aRectangle [
 	rectangle := aRectangle
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSQuadTree >> soleChild [
 	^ soleChild
 ]
 
-{ #category : #enumeration }
+{ #category : 'enumeration' }
 RSQuadTree >> subQuadsDo: aBlockClosure [
 	northWestQuad ifNotNil: aBlockClosure.
 	northEastQuad ifNotNil: aBlockClosure.
@@ -149,7 +150,7 @@ RSQuadTree >> subQuadsDo: aBlockClosure [
 	southEastQuad ifNotNil: aBlockClosure
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RSQuadTree >> visibleShapeContains: aPoint list: listResult [
 	(self rectangle containsPoint: aPoint) ifFalse: [ ^ self ].
 	self isLeaf ifTrue: [
@@ -161,7 +162,7 @@ RSQuadTree >> visibleShapeContains: aPoint list: listResult [
 	]
 ]
 
-{ #category : #'finding/searching' }
+{ #category : 'finding/searching' }
 RSQuadTree >> visibleShapeContainsPoint: aPoint [
 
 	| listResult |
@@ -172,7 +173,7 @@ RSQuadTree >> visibleShapeContainsPoint: aPoint [
 		ifFalse: [ nil ]
 ]
 
-{ #category : #'finding/searching' }
+{ #category : 'finding/searching' }
 RSQuadTree >> visibleShapesFrom: aRectangle [
 
 	| listResult |
@@ -181,7 +182,7 @@ RSQuadTree >> visibleShapesFrom: aRectangle [
 	^ listResult
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RSQuadTree >> visibleShapesFrom: aRectangle list: listResult [
 
 	(self rectangle intersects: aRectangle) ifFalse: [ ^ self ].

@@ -2,22 +2,23 @@
 Used int tests, for Roassal use RSLine
 "
 Class {
-	#name : #RSLayoutLine,
-	#superclass : #Object,
+	#name : 'RSLayoutLine',
+	#superclass : 'Object',
 	#instVars : [
 		'from',
 		'to',
 		'parent'
 	],
-	#category : #'Roassal-Layouts-Util'
+	#category : 'Roassal-Layouts-Util',
+	#package : 'Roassal-Layouts-Util'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSLayoutLine >> from [
 	^ from
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 RSLayoutLine >> from: nodeA to: nodeB [
 	nodeA connectedLines add: self.
 	nodeB connectedLines add: self.
@@ -25,22 +26,22 @@ RSLayoutLine >> from: nodeA to: nodeB [
 	to := nodeB.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 RSLayoutLine >> isNode [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSLayoutLine >> parent [
 	^ parent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSLayoutLine >> parent: aNode [
 	parent := aNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSLayoutLine >> to [
 	^ to
 ]
