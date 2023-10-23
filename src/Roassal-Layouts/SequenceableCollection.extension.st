@@ -1,6 +1,6 @@
-Extension { #name : #SequenceableCollection }
+Extension { #name : 'SequenceableCollection' }
 
-{ #category : #'*Roassal-Layouts' }
+{ #category : '*Roassal-Layouts' }
 SequenceableCollection >> rsSwapElement: u withElement: v [
 	| index1 index2 |
 	index1 := self indexOf: u.
@@ -9,7 +9,7 @@ SequenceableCollection >> rsSwapElement: u withElement: v [
 	self at: index1 put: v
 ]
 
-{ #category : #'*Roassal-Layouts' }
+{ #category : '*Roassal-Layouts' }
 SequenceableCollection >> sortedAs: aSortBlockOrSymbol [
 	"Answer a SortedCollection whose elements are the elements of the
 	receiver. The sort order is defined by the argument, aSortBlock."
