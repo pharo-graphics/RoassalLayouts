@@ -52,7 +52,7 @@ RSHorizontalFlowLayout >> linesFor: shapes [
 	hgap := self horizontalGap.
 	vgap := self verticalGap.
 	x := y := maxLastLineWidth := 0.
-	
+
 	maxHeight := self maxWidth rsValue: shapes.
 	lines := OrderedCollection new.
 	currentLine := OrderedCollection new.

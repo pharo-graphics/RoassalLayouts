@@ -56,7 +56,7 @@ RSClusteringLayout >> getClusterFor: shapes [
 	result := OrderedCollection new.
 	shapes do: [ :s | | t |
 		t := s allRecursiveConnectedNodes.
-		(result includes: t) 
+		(result includes: t)
 			ifFalse: [ result add: t ]
 	].
 

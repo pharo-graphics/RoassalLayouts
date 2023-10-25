@@ -27,7 +27,7 @@ RSVerticalCellLayout >> alignment: anObject [
 { #category : 'hook' }
 RSVerticalCellLayout >> doExecute: shapes [
 	| pointer lineItemCount lineItemSize maxLastLineWidth originalGapLeft originalGapTop vgap hgap align line mocks|
-	
+
 	mocks := RSMockShape shapes: shapes.
 	originalGapLeft := 0.
 	originalGapTop := 0.
@@ -57,7 +57,7 @@ RSVerticalCellLayout >> doExecute: shapes [
 	line ifEmpty: [ ^ self ].
 	align shapes: line.
 	alignment value: align.
-	line do: [:mock | mock applyToRealElement ].
+	line do: [:mock | mock applyToRealElement ]
 ]
 
 { #category : 'initialization' }

@@ -1,15 +1,16 @@
 Class {
-	#name : #RSSugiyamaLayoutTest,
-	#superclass : #RSLayoutTest,
-	#category : #'Roassal-Layouts-Tests'
+	#name : 'RSSugiyamaLayoutTest',
+	#superclass : 'RSLayoutTest',
+	#category : 'Roassal-Layouts-Tests',
+	#package : 'Roassal-Layouts-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 RSSugiyamaLayoutTest >> testBasic [
 	RSSugiyamaLayout on: canvas nodes
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RSSugiyamaLayoutTest >> testOnCycle [
 	canvas nodes copy do: #remove.
 	canvas addAll: ((1 to: 3) collect:  [ :each | RSLayoutNode new model: each ]).

@@ -123,11 +123,11 @@ RSRadialTreeLayout >> computePosition: aNode [
 RSRadialTreeLayout >> doExecute: nodeElements [
 	| rootNodes xOffset maximumRadius |
 	rootNodes := self rootNodesFor: nodeElements.
-	rootNodes do: [ :e | 
+	rootNodes do: [ :e |
 		self initialize: e whoseFatherIs: nil.
 		self computePosition: e.
 		self computeGap: e.
-		self toRadialTree: e withMod: 0 
+		self toRadialTree: e withMod: 0
 		 ].
 	xOffset := 0.
 	rootNodes do: [ :e |

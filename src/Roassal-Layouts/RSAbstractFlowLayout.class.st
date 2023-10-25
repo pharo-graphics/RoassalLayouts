@@ -55,8 +55,8 @@ RSAbstractFlowLayout >> alignment: anObject [
 { #category : 'configuration' }
 RSAbstractFlowLayout >> defaultMaxWidth [
 	^ [ :shapes |
-		(shapes size < 4) 
-			ifTrue: [ 
+		(shapes size < 4)
+			ifTrue: [
 				(((shapes collect: [ :each | each width * each height]) * 2) sum ) + (shapes size * (gapSize squared)) ]
 			ifFalse: [
 			((((shapes collect: [ :each | each width * each height]) * 2) sum) + (shapes size * (gapSize squared))) sqrt ceiling truncated.

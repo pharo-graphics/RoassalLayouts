@@ -235,11 +235,11 @@ RSAbstractGraphLayout >> rootNodesFromCycles: shapes [
 	groups := graph computeSCCs.
 	"this takes all cycles and put them as roots"
 	"a cycle is detected when group size is more than 1"
-	^ (groups flatCollect: [ :group | 
+	^ (groups flatCollect: [ :group |
 		group size > 1
 			ifTrue: [ group collect: [ :i | shapes at: i ] ]
 			ifFalse: [#()]
-		] as: Set) asOrderedCollection.
+		] as: Set) asOrderedCollection
 ]
 
 { #category : 'private' }

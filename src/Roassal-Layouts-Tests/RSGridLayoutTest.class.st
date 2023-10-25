@@ -1,24 +1,25 @@
 Class {
-	#name : #RSGridLayoutTest,
-	#superclass : #RSLayoutTest,
-	#category : #'Roassal-Layouts-Tests'
+	#name : 'RSGridLayoutTest',
+	#superclass : 'RSLayoutTest',
+	#category : 'Roassal-Layouts-Tests',
+	#package : 'Roassal-Layouts-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 RSGridLayoutTest >> testBasicCustomizedGapSizeGridLayout [
 
 	RSGridLayout new gapSize:15; on: canvas nodes.
 	self assert: (shapes collect: #position) asArray equals: {(2.5@2.5). (22.5@2.5). (42.5@2.5). (62.5@2.5). (2.5@22.5). (22.5@22.5). (42.5@22.5). (62.5@22.5). (2.5@42.5). (22.5@42.5)}
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RSGridLayoutTest >> testBasicDefaultGapSizeGridLayout [
 
 	RSGridLayout new gapSize:5; on: canvas nodes.
 	self assert: (shapes collect: #position) asArray equals: {(2.5@2.5). (12.5@2.5). (22.5@2.5). (32.5@2.5). (2.5@12.5). (12.5@12.5). (22.5@12.5). (32.5@12.5). (2.5@22.5). (12.5@22.5)}
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RSGridLayoutTest >> testFixedPositionsAfterApplyingTheLayout [
 
 	RSGridLayout on: canvas nodes.
@@ -34,7 +35,7 @@ RSGridLayoutTest >> testFixedPositionsAfterApplyingTheLayout [
 12 @ 22}
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RSGridLayoutTest >> testLineItemsCount [
 
 	| shapesInLine |
@@ -45,7 +46,7 @@ RSGridLayoutTest >> testLineItemsCount [
 	self assert: (shapesInLine allSatisfy: [:group | group size between: 1 and: 3 ])
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RSGridLayoutTest >> testLineItemsCountForASingleLineOfShapes [
 	canvas := RSLayoutNode new.
 	shapes := (1 to: 3) collect: [ :each | RSLayoutNode new size: 20 ].
@@ -54,7 +55,5 @@ RSGridLayoutTest >> testLineItemsCountForASingleLineOfShapes [
 		gapSize: 10;
 		lineItemsCount: 8;
 		on: shapes.
-	self assertIntegerPosition: shapes equals: {10@10. 40@10. 70@10}.
-	
-	
+	self assertIntegerPosition: shapes equals: {10@10. 40@10. 70@10}
 ]

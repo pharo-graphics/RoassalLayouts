@@ -28,7 +28,7 @@ RSLayoutNode class >> model: anObject [
 
 { #category : 'instance creation' }
 RSLayoutNode class >> models: aCollection [
-	^ aCollection collect: [ :each | self model: each ].
+	^ aCollection collect: [ :each | self model: each ]
 ]
 
 { #category : 'instance creation' }
@@ -57,7 +57,6 @@ RSLayoutNode class >> with: aGroupOfNodes [
 		position: rectangle floatCenter;
 		extent: rectangle extent;
 		yourself
-		
 ]
 
 { #category : 'adding' }
@@ -152,7 +151,7 @@ RSLayoutNode >> model [
 
 { #category : 'accessing' }
 RSLayoutNode >> model: anObject [
-	model := anObject 
+	model := anObject
 ]
 
 { #category : 'accessing' }
@@ -178,7 +177,7 @@ RSLayoutNode >> padding: aNumber [
 	margin := aNumber asMargin.
 	rect := children encompassingRectangle.
 	rect := margin expandRectangle: rect.
-	self extent: rect extent.
+	self extent: rect extent
 ]
 
 { #category : 'accessing' }

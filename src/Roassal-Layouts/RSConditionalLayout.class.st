@@ -46,8 +46,8 @@ RSConditionalLayout >> doExecute: shapes [
 	elseShapes := shapes reject: if.
 	thenLayout on: thenShapes.
 	elseLayout on: elseShapes.
-	
-	clusterLayout on: { thenShapes. elseShapes } asGroup.
+
+	clusterLayout on: { thenShapes. elseShapes } asGroup
 ]
 
 { #category : 'accessing' }
@@ -89,7 +89,7 @@ RSConditionalLayout >> initialize [
 	self if: [ :each | true ].
 	self clusterLayout: RSHorizontalLineLayout new.
 	thenLayout := clusterLayout.
-	elseLayout := clusterLayout.
+	elseLayout := clusterLayout
 ]
 
 { #category : 'accessing' }

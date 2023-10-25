@@ -28,7 +28,7 @@ RSLayoutLineBuilder >> connectFrom: aBlock [
 	nodes do: [ :n |
 		fromNode := self nodeFor: (aBlock value: n model).
 		fromNode ifNotNil: [ self newLine from: fromNode to: n ]
-		].
+		]
 ]
 
 { #category : 'accessing' }
@@ -61,5 +61,4 @@ RSLayoutLineBuilder >> useAssociations: aCollection [
 			from: (self nodeFor: assoc key)
 			to: (self nodeFor: assoc value)
 		 ]
-	
 ]

@@ -162,8 +162,7 @@ RSForceBasedLayout >> doExecute: nodeShapes [
 		ifFalse: [ self runLayoutSimply ].
 	alpha := 0.
 	nodes do: [ :e | translator translateTopLeftOf: e to: e position ].
-	nodeShapes do: [ :n | n updateLinesON. n connectedLines do: #update ].
-	
+	nodeShapes do: [ :n | n updateLinesON. n connectedLines do: #update ]
 ]
 
 { #category : 'public - configuration' }
@@ -209,7 +208,7 @@ RSForceBasedLayout >> initialLayout: aLayout [
 RSForceBasedLayout >> initialize [
 	super initialize.
 	random := Random seed: 42.
-	self reset.
+	self reset
 ]
 
 { #category : 'accessing' }
@@ -361,7 +360,7 @@ RSForceBasedLayout >> runLayoutIn: job [
 			alpha := alpha * 0.99.
 			self step.
 		job currentValue: 1 - alpha ] ].
-	self nodes: #(); edges: #().
+	self nodes: #(); edges: #()
 ]
 
 { #category : 'hook' }

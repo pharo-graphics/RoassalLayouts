@@ -190,8 +190,8 @@ RSTWalkBasedRegularTreeLayout >> indexOfIYL: aValueLink [
 ]
 
 { #category : 'initialization' }
-RSTWalkBasedRegularTreeLayout >> initialize: elements associationEdges: associations [	
-	| hierarchy roots fathers rootNode leaves |	
+RSTWalkBasedRegularTreeLayout >> initialize: elements associationEdges: associations [
+	| hierarchy roots fathers rootNode leaves |
 	hierarchy := IdentityDictionary new.
 	roots := IdentitySet withAll: elements.
 	leaves := IdentitySet withAll: elements.
@@ -211,7 +211,7 @@ RSTWalkBasedRegularTreeLayout >> initialize: elements associationEdges: associat
 
 		fathersOfChild := fathers
 			                  at: child
-			                  ifAbsentPut: [ OrderedCollection new ]. 
+			                  ifAbsentPut: [ OrderedCollection new ].
 
 		fathersOfChild add: father.
 

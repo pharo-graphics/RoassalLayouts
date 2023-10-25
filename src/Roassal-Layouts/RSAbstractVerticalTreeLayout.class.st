@@ -33,10 +33,10 @@ RSAbstractVerticalTreeLayout >> layout: aNodeCollection atPoint: aPoint atLayer:
 	self atLayer: aNumber add: aNodeCollection.
 	aNodeCollection do: [ :each |
 		| children |
-		
+
 		childrenPosition := y + each height + self verticalGap.
 		children := self computeChildrenFor: each.
-			
+
 		treeSize := self
 			layout: children
 			atPoint: x @ childrenPosition

@@ -21,8 +21,8 @@ Class {
 
 { #category : 'accessing' }
 RSMockShape class >> shapes: aCollection [
-	^ aCollection collect: [ :shape | 
-		self new 
+	^ aCollection collect: [ :shape |
+		self new
 			realShape: shape;
 			yourself ]
 ]

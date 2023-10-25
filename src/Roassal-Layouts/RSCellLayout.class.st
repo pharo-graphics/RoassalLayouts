@@ -32,7 +32,7 @@ RSCellLayout >> alignment: anObject [
 { #category : 'hook' }
 RSCellLayout >> doExecute: shapes [
 
-	| pointer lineItemCount lineItemSize maxLastLineHeight originalGapLeft 
+	| pointer lineItemCount lineItemSize maxLastLineHeight originalGapLeft
 	 originalGapTop vgap hgap line align |
 	originalGapLeft := 0.
 	originalGapTop := 0.
@@ -42,7 +42,7 @@ RSCellLayout >> doExecute: shapes [
 	maxLastLineHeight := 0.
 	vgap := self verticalGap.
 	hgap := self horizontalGap.
-	
+
 	line := OrderedCollection new.
 	align := RSAlignment new.
 	shapes do: [ :shape |

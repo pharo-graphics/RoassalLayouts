@@ -11,16 +11,16 @@ Class {
 
 { #category : 'drawing - general' }
 RSClusterRadialTreeLayout >> draw: aNode [
-	self draw: aNode level: 1.
+	self draw: aNode level: 1
 ]
 
 { #category : 'drawing - general' }
 RSClusterRadialTreeLayout >> draw: aNode level: level [
 	| layer allChildren position |
 	layer := self layerOf: aNode.
-	
+
 	position := (Point r: (maxLayer - layer) * verticalGap theta: (maxAbcissa - (self xOf: aNode) / maxAbcissa) * 2 * Float pi).
-	level > 3 ifTrue: [ 
+	level > 3 ifTrue: [
 		allChildren := self allChildrenFor: aNode.
 		allChildren add: aNode.
 		allChildren do: [ :each | each properties: nil ].
@@ -31,7 +31,7 @@ RSClusterRadialTreeLayout >> draw: aNode level: level [
 		allChildren do: [ :each | each translateBy: position ].
 		^ self
 		 ].
-	
+
 	(self childrenFor: aNode) do: [ :e | self draw: e level: level + 1 ].
 	translator
 		translateTopLeftOf: aNode

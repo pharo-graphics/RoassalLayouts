@@ -40,7 +40,7 @@ RSAbstractBoxedLayout >> gapSize [
 RSAbstractBoxedLayout >> gapSize: aSizeInPixels [
 	gapSize := aSizeInPixels.
 	self horizontalGap: gapSize.
-	self verticalGap: gapSize.
+	self verticalGap: gapSize
 ]
 
 { #category : 'accessing' }

@@ -71,8 +71,8 @@ RSAbstractCompactTreeLayout >> followLeftContour: aNode toLayer: anInteger [
 	(self layerOf: aNode) > anInteger ifTrue: [ ^ nil ].
 
 	^ (self leftContourOf: aNode) ifNil: [
-		(self pointerOf: aNode) 
-			ifNil: [ nil ] 
+		(self pointerOf: aNode)
+			ifNil: [ nil ]
 			ifNotNil: [
 				self
 					followLeftContour: (self pointerOf: aNode)

@@ -21,7 +21,7 @@ Class {
 
 { #category : 'examples' }
 RSGroup class >> example1 [
-	| shapes c |	
+	| shapes c |
 	shapes := (1 to: 20) collect: [ :value |
 		| g p |
 		g := self new.
@@ -194,7 +194,7 @@ g shapesFromModel: 'hello'
 				ifTrue: [ self select: [ :el | el model == anObject ] ]
 				ifFalse: [ self select: [ :el | el model = anObject ] ].
 
-	
+
 	cache at: anObject put: t.
 	^ t
 ]
@@ -263,7 +263,7 @@ RSGroup >> when: anAnnouncementClass do: aValuable [
 		                            ifFalse: [ '`@arg2 receiver' ].
 	self
 		deprecated:
-			'Since there are some block closures (Clean and Constant) without a receiver, the API of announcements was changed to send the subscriber explicitly. 
+			'Since there are some block closures (Clean and Constant) without a receiver, the API of announcements was changed to send the subscriber explicitly.
 			We are deprecating this method because it was asking for the receiver of the block to use it as the subscriber.'
 		transformWith: '`@receiver when: `@arg1 do: `@arg2'
 			->

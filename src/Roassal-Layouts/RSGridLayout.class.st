@@ -58,7 +58,7 @@ RSGridLayout >> doExecute: shapes [
 	rowHeights := OrderedCollection new.
 	hgap := self horizontalGap.
 	vgap := self verticalGap.
-	
+
 	shapes do: [ :shape |
 		columnsWidths size < columnCount
 			ifTrue: [ columnsWidths add: 0 ].
@@ -80,13 +80,13 @@ RSGridLayout >> doExecute: shapes [
 	location := RSLocation new inner.
 	verticalAlignment value: location.
 	horizontalAlignment value: location.
-	
+
 	shapes do: [ :shape | | width height |
 		width := columnsWidths at: columnCount.
 		height := rowHeights at: rowCount.
 		location move: shape on: (Rectangle floatCenter: pointer extent: width @ height).
 		pointer := (width/2 + hgap) @ 0 + pointer.
-		
+
 		columnCount := columnCount + 1.
 		columnCount > lineItemSize ifTrue: [
 			columnCount := 1.
@@ -115,7 +115,7 @@ RSGridLayout >> horizontalAlignment: anObject [
 { #category : 'initialization' }
 RSGridLayout >> initialize [
 	super initialize.
-	self alignMiddle; alignCenter.
+	self alignMiddle; alignCenter
 ]
 
 { #category : 'accessing' }

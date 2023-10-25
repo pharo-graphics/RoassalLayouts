@@ -23,7 +23,7 @@ RSLayoutLine >> from: nodeA to: nodeB [
 	nodeA connectedLines add: self.
 	nodeB connectedLines add: self.
 	from := nodeA.
-	to := nodeB.
+	to := nodeB
 ]
 
 { #category : 'testing' }

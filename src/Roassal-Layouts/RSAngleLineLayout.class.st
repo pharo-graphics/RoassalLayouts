@@ -26,7 +26,6 @@ RSAngleLineLayout >> angle: anAngleInDegrees [
 { #category : 'accessing' }
 RSAngleLineLayout >> angleByDegrees: aFloat [
 	self angle: aFloat degreesToRadians
-	
 ]
 
 { #category : 'hook' }
@@ -37,7 +36,6 @@ RSAngleLineLayout >> defaultAngle [
 { #category : 'defaults' }
 RSAngleLineLayout >> defaultPosition [
 	^ 0 @ 0
-	
 ]
 
 { #category : 'hook' }
@@ -48,10 +46,9 @@ RSAngleLineLayout >> deltaFor: anRSShape [
 { #category : 'initialization' }
 RSAngleLineLayout >> initialize [
 	super initialize.
-	self 
+	self
 		angle: self defaultAngle;
 		originalPointer: self defaultPosition
-	
 ]
 
 { #category : 'hook' }
@@ -63,7 +60,7 @@ RSAngleLineLayout >> movePointer: pointer accordingToFigure: anRSShape [
 	normal := vector normal.
 	unit := vector / (vector r max: 1).
 	gap := unit * self gapSize.
-	^ pointer + vector + gap.
+	^ pointer + vector + gap
 ]
 
 { #category : 'accessing' }
@@ -79,6 +76,6 @@ RSAngleLineLayout >> originalPointer: anObject [
 ]
 
 { #category : 'hook' }
-RSAngleLineLayout >> positionOriginalPointer: shapes [ 
+RSAngleLineLayout >> positionOriginalPointer: shapes [
 	^ originalPointer
 ]
