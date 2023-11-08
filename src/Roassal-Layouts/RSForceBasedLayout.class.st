@@ -320,7 +320,7 @@ RSForceBasedLayout >> repulse: aNode from: aQuad [
 					k := aQuad charge * dn * dn.
 					aNode oldPosition: p - (d * k).
 					^ self ].
-			(aQuad soleChild notNil and: [ dn < 1e9 ])
+			(aQuad soleChild isNotNil and: [ dn < 1e9 ])
 				ifTrue: [
 					k := aQuad soleChild charge * dn * dn * alpha.
 					aNode oldPosition: p - (d * k).] ] ].
