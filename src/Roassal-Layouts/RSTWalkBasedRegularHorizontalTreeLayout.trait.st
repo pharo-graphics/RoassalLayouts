@@ -4,15 +4,13 @@ It applies this properties for a horizontal tree layout.
 Check similarities with `RSTWalkBasedRegularVerticalTreeLayout`
 "
 Trait {
-	#name : 'RSTWalkBasedRegularHorizontalTreeLayout',
+	#name : #RSTWalkBasedRegularHorizontalTreeLayout,
 	#traits : 'RSTGapsHolder',
 	#classTraits : 'RSTGapsHolder classTrait',
-	#category : 'Roassal-Layouts-Traits',
-	#package : 'Roassal-Layouts',
-	#tag : 'Traits'
+	#category : 'Roassal-Layouts-Traits'
 }
 
-{ #category : 'positioning' }
+{ #category : #positioning }
 RSTWalkBasedRegularHorizontalTreeLayout >> breadthGapAmong: aShapeParent and: aShape [
 
 	^ self
@@ -21,13 +19,13 @@ RSTWalkBasedRegularHorizontalTreeLayout >> breadthGapAmong: aShapeParent and: aS
 		  default: RSAbstractGraphLayout horizontalGap
 ]
 
-{ #category : 'positioning' }
+{ #category : #positioning }
 RSTWalkBasedRegularHorizontalTreeLayout >> breadthMeasureOf: aShape [
 
 	^ aShape height
 ]
 
-{ #category : 'positioning' }
+{ #category : #positioning }
 RSTWalkBasedRegularHorizontalTreeLayout >> depthGapAmong: aShapeParent and: aShape [
 
 	^ self
@@ -36,13 +34,13 @@ RSTWalkBasedRegularHorizontalTreeLayout >> depthGapAmong: aShapeParent and: aSha
 		  default: RSAbstractGraphLayout verticalGap
 ]
 
-{ #category : 'positioning' }
+{ #category : #positioning }
 RSTWalkBasedRegularHorizontalTreeLayout >> depthMeasureOf: aShape [
 
 	^ aShape width
 ]
 
-{ #category : 'positioning' }
+{ #category : #positioning }
 RSTWalkBasedRegularHorizontalTreeLayout >> positionOfShape: aShape atDepth: depth atBreadth: breadth [
 
 	| shift |

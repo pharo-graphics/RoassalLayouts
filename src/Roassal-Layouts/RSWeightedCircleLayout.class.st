@@ -2,14 +2,12 @@
 RSWeightedCircleLayout is a circle layout that gives more space to big elements and fewer space to small elements.
 "
 Class {
-	#name : 'RSWeightedCircleLayout',
-	#superclass : 'RSAbstractWeightedCircleLayout',
-	#category : 'Roassal-Layouts-Circle',
-	#package : 'Roassal-Layouts',
-	#tag : 'Circle'
+	#name : #RSWeightedCircleLayout,
+	#superclass : #RSAbstractWeightedCircleLayout,
+	#category : 'Roassal-Layouts-Circle'
 }
 
-{ #category : 'hook' }
+{ #category : #hook }
 RSWeightedCircleLayout >> doExecute: elements [
 	| angle rad center angleInc weightSum size |
 	rad := self computeRadiusFor: elements.

@@ -2,13 +2,11 @@
 Use this trait to define nodes
 "
 Trait {
-	#name : 'RSTNode',
-	#category : 'Roassal-Layouts-Traits',
-	#package : 'Roassal-Layouts',
-	#tag : 'Traits'
+	#name : #RSTNode,
+	#category : 'Roassal-Layouts-Traits'
 }
 
-{ #category : 'accessing - nodes' }
+{ #category : #'accessing - nodes' }
 RSTNode >> allRecursiveConnectedNodes [
 	"Return the set of all recursively connected shapes."
 	| r |
@@ -17,7 +15,7 @@ RSTNode >> allRecursiveConnectedNodes [
 	^ r
 ]
 
-{ #category : 'accessing - nodes' }
+{ #category : #'accessing - nodes' }
 RSTNode >> allRecursiveConnectedNodesIn: aCollection [
 	"Private method"
 
@@ -30,67 +28,67 @@ RSTNode >> allRecursiveConnectedNodesIn: aCollection [
 	self outgoingNodes do: [ :s | s allRecursiveConnectedNodesIn: aCollection ]
 ]
 
-{ #category : 'accessing - lines' }
+{ #category : #'accessing - lines' }
 RSTNode >> connectedLines [
 	^ self explicitRequirement
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 RSTNode >> encompassingRectangle [
 	^ self explicitRequirement
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 RSTNode >> extent [
 	^ self explicitRequirement
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 RSTNode >> extent: aPoint [
 	self explicitRequirement
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 RSTNode >> hasLines [
 	^ self explicitRequirement
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 RSTNode >> height [
 	^ self explicitRequirement
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 RSTNode >> height: aNumber [
 	self explicitRequirement
 ]
 
-{ #category : 'accessing - nodes' }
+{ #category : #'accessing - nodes' }
 RSTNode >> incomingNodes [
 	^ self explicitRequirement
 ]
 
-{ #category : 'accessing - nodes' }
+{ #category : #'accessing - nodes' }
 RSTNode >> outgoingNodes [
 	^ self explicitRequirement
 ]
 
-{ #category : 'accessing - lines' }
+{ #category : #'accessing - lines' }
 RSTNode >> updateLinesOFF [
 	self explicitRequirement
 ]
 
-{ #category : 'accessing - lines' }
+{ #category : #'accessing - lines' }
 RSTNode >> updateLinesON [
 	self explicitRequirement
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 RSTNode >> width [
 	^ self explicitRequirement
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 RSTNode >> width: aNumber [
 	self explicitRequirement
 ]

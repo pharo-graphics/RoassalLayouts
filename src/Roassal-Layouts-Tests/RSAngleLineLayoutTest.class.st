@@ -1,11 +1,10 @@
 Class {
-	#name : 'RSAngleLineLayoutTest',
-	#superclass : 'RSLayoutTest',
-	#category : 'Roassal-Layouts-Tests',
-	#package : 'Roassal-Layouts-Tests'
+	#name : #RSAngleLineLayoutTest,
+	#superclass : #RSLayoutTest,
+	#category : 'Roassal-Layouts-Tests'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 RSAngleLineLayoutTest >> testBasic [
 
 	| layout angle |
@@ -16,7 +15,7 @@ RSAngleLineLayoutTest >> testBasic [
 	self assert: layout angle equals: angle
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 RSAngleLineLayoutTest >> testGapSize [
 
 	| layout var1st var2nd |
@@ -28,7 +27,7 @@ RSAngleLineLayoutTest >> testGapSize [
 	self assert: var2nd position closeTo: 107.5 @ 2.5
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 RSAngleLineLayoutTest >> testLayoutWith0Angle [
 
 	| layout x gap |
@@ -41,7 +40,7 @@ RSAngleLineLayoutTest >> testLayoutWith0Angle [
 		x := x + each width + gap ]
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 RSAngleLineLayoutTest >> testLayoutWith90Angle [
 
 	| layout y gap |
@@ -55,7 +54,7 @@ RSAngleLineLayoutTest >> testLayoutWith90Angle [
 		y := y + each height + gap ]
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 RSAngleLineLayoutTest >> testLayoutWithThreeElements [
 	| layout gap extent |
 	layout := RSAngleLineLayout new.

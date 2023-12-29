@@ -4,14 +4,12 @@ This class is used when no specific layout is required for visualizing objects i
 It serves as a placeholder for situations where the user wants to display objects without applying any layout algorithms.
 "
 Class {
-	#name : 'RSNoLayout',
-	#superclass : 'RSLayout',
-	#category : 'Roassal-Layouts-Core',
-	#package : 'Roassal-Layouts',
-	#tag : 'Core'
+	#name : #RSNoLayout,
+	#superclass : #RSLayout,
+	#category : 'Roassal-Layouts-Core'
 }
 
-{ #category : 'hook' }
+{ #category : #hook }
 RSNoLayout >> doExecute: elements [
 	"Do nothing"
 ]
