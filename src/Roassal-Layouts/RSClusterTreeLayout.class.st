@@ -4,8 +4,8 @@ The `RSClusterTreeLayout` class implements a layout algorithm for arranging node
 Cluster tree layouts are useful for visualizing hierarchical relationships and grouping related nodes together.
 "
 Class {
-	#name : 'RSClusterTreeLayout',
-	#superclass : 'RSAbstractGraphLayout',
+	#name : #RSClusterTreeLayout,
+	#superclass : #RSAbstractGraphLayout,
 	#traits : 'RSTLayoutProperties',
 	#classTraits : 'RSTLayoutProperties classTrait',
 	#instVars : [
@@ -13,12 +13,10 @@ Class {
 		'maxLayer',
 		'maxAbcissa'
 	],
-	#category : 'Roassal-Layouts-Tree',
-	#package : 'Roassal-Layouts',
-	#tag : 'Tree'
+	#category : 'Roassal-Layouts-Tree'
 }
 
-{ #category : 'algorithm' }
+{ #category : #algorithm }
 RSClusterTreeLayout >> computePosition: aNode [
 	| children previous |
 	children := self childrenFor: aNode.
@@ -36,7 +34,7 @@ RSClusterTreeLayout >> computePosition: aNode [
 						+ (self xOf: (self rightContourOf: aNode))) / 2 ]
 ]
 
-{ #category : 'hook' }
+{ #category : #hook }
 RSClusterTreeLayout >> doExecute: nodeElements [
 	| rootNodes gap |
 	"Not much to do if there is only one element"
@@ -60,7 +58,7 @@ RSClusterTreeLayout >> doExecute: nodeElements [
 	rootNodes do: [ :e | self draw: e ]
 ]
 
-{ #category : 'drawing - general' }
+{ #category : #'drawing - general' }
 RSClusterTreeLayout >> draw: aNode [
 	(self childrenFor: aNode) do: [ :e | self draw: e ].
 	translator
@@ -68,7 +66,7 @@ RSClusterTreeLayout >> draw: aNode [
 		to: (Point r: (maxLayer - (self layerOf: aNode)) * verticalGap theta: (maxAbcissa - (self xOf: aNode) / maxAbcissa) * 2 * Float pi )
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 RSClusterTreeLayout >> initialize [
 	super initialize.
 	verticalGap := 30.
@@ -76,7 +74,7 @@ RSClusterTreeLayout >> initialize [
 	externalLayer := OrderedCollection new
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 RSClusterTreeLayout >> initializeNode: aNode [
 	|children|
 	children := self childrenFor: aNode.

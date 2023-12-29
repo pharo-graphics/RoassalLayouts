@@ -9,22 +9,20 @@ Usage:
 - Call #on: to perform the layout calculations and update the positions of the elements.
 "
 Class {
-	#name : 'RSAbstractLineLayout',
-	#superclass : 'RSAbstractBoxedLayout',
+	#name : #RSAbstractLineLayout,
+	#superclass : #RSAbstractBoxedLayout,
 	#instVars : [
 		'alignment'
 	],
-	#category : 'Roassal-Layouts-Line',
-	#package : 'Roassal-Layouts',
-	#tag : 'Line'
+	#category : 'Roassal-Layouts-Line'
 }
 
-{ #category : 'testing' }
+{ #category : #testing }
 RSAbstractLineLayout class >> isAbstract [
 	^ self name = #RSAbstractLineLayout
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 RSAbstractLineLayout class >> withGap: anInteger [
 
 	^ self new
@@ -32,27 +30,27 @@ RSAbstractLineLayout class >> withGap: anInteger [
 		yourself
 ]
 
-{ #category : 'alignment' }
+{ #category : #alignment }
 RSAbstractLineLayout >> alignNone [
 	self alignment: #none
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 RSAbstractLineLayout >> alignment [
 	^ alignment
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 RSAbstractLineLayout >> alignment: anObject [
 	alignment := anObject
 ]
 
-{ #category : 'hook' }
+{ #category : #hook }
 RSAbstractLineLayout >> deltaFor: anRSShape [
 	^ self subclassResponsibility
 ]
 
-{ #category : 'hook' }
+{ #category : #hook }
 RSAbstractLineLayout >> doExecute: shapes [
 	| pointer delta |
 	pointer := self positionOriginalPointer: shapes.
@@ -64,18 +62,18 @@ RSAbstractLineLayout >> doExecute: shapes [
 			accordingToFigure: shape ]
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 RSAbstractLineLayout >> initialize [
 	super initialize.
 	self alignNone
 ]
 
-{ #category : 'hook' }
+{ #category : #hook }
 RSAbstractLineLayout >> movePointer: pointer accordingToFigure: anRSShape [
 	^ self subclassResponsibility
 ]
 
-{ #category : 'hook' }
+{ #category : #hook }
 RSAbstractLineLayout >> positionOriginalPointer: aCollectionOfShapes [
 	^ self subclassResponsibility
 ]

@@ -6,8 +6,8 @@ This algorithm organizes nodes into multiple layers and minimizes the number of 
 Based on Coffman-Graham-Layering. Di Battista Book, page 275, chapter, 9.2.1
 "
 Class {
-	#name : 'RSSugiyamaLayout',
-	#superclass : 'RSAbstractGraphLayout',
+	#name : #RSSugiyamaLayout,
+	#superclass : #RSAbstractGraphLayout,
 	#instVars : [
 		'labels',
 		'layers',
@@ -18,12 +18,10 @@ Class {
 		'childrenWithoutCycles',
 		'parentWithoutCycles'
 	],
-	#category : 'Roassal-Layouts-ByConnection',
-	#package : 'Roassal-Layouts',
-	#tag : 'ByConnection'
+	#category : 'Roassal-Layouts-ByConnection'
 }
 
-{ #category : 'utilities' }
+{ #category : #utilities }
 RSSugiyamaLayout class >> sort: assocA to: assocB [
 	| a b offset |
 	offset := 0.
@@ -38,13 +36,13 @@ RSSugiyamaLayout class >> sort: assocA to: assocB [
 	^ (a at: a size - offset) >= (b at: b size - offset)
 ]
 
-{ #category : 'utilities' }
+{ #category : #utilities }
 RSSugiyamaLayout class >> sortBlock [
 
 	^ [ :assocA :assocB | self sort: assocA to: assocB ]
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 RSSugiyamaLayout >> addDummyNodes [
 
 	| layer layerNr |
@@ -76,7 +74,7 @@ RSSugiyamaLayout >> addDummyNodes [
 			connections at: fromNode at: edge to put: true ] ]
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 RSSugiyamaLayout >> assignLabels: aNodeCollection [
 
 	"Initialize label dictionary"
@@ -100,7 +98,7 @@ RSSugiyamaLayout >> assignLabels: aNodeCollection [
 		label := label + 1 ]
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 RSSugiyamaLayout >> buildLayers: g [
 
 	| w layerNr u vertices vertex layer done |
@@ -128,14 +126,14 @@ RSSugiyamaLayout >> buildLayers: g [
 		g remove: vertex ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 RSSugiyamaLayout >> childrenWithoutCyclesFor: aRSComposite [
 
 	childrenWithoutCycles ifNil: [ childrenWithoutCycles := IdentityDictionary new ].
 	^ childrenWithoutCycles at: aRSComposite ifAbsentPut: [ (self childrenFor: aRSComposite) copy ]
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 RSSugiyamaLayout >> cl: layer u: u v: v [
 	"Calculates cuv. Di Battista, chapter 9.2.2, page 283"
 	| partnersOfU partnersOfV c partnersOfUIndex partnersOfVIndex layerNr |
@@ -153,7 +151,7 @@ RSSugiyamaLayout >> cl: layer u: u v: v [
 	^c
 ]
 
-{ #category : 'hook' }
+{ #category : #hook }
 RSSugiyamaLayout >> doExecute: aNodeCollection [
 	"Coffman-Graham-Layering. Di Battista Book, page 275, chapter, 9.2.1"
 
@@ -165,7 +163,7 @@ RSSugiyamaLayout >> doExecute: aNodeCollection [
 	self layoutAt: self verticalGap @ self horizontalGap
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 RSSugiyamaLayout >> layoutAt: aPoint [
 
 	| treeWidth layerKeys layer layerWidth horizontalPosition verticalPosition layerHeight |
@@ -195,19 +193,19 @@ RSSugiyamaLayout >> layoutAt: aPoint [
 		                    + self verticalGap ]
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 RSSugiyamaLayout >> maxFloat [
 	^ 1e10
 ]
 
-{ #category : 'real sugiyama' }
+{ #category : #'real sugiyama' }
 RSSugiyamaLayout >> parentsWithoutCylesFor: aRSComposite [
 
 	parentWithoutCycles ifNil: [ parentWithoutCycles := IdentityDictionary new ].
 	^ parentWithoutCycles at: aRSComposite ifAbsentPut: [ (self parentsFor: aRSComposite) copy ]
 ]
 
-{ #category : 'real sugiyama' }
+{ #category : #'real sugiyama' }
 RSSugiyamaLayout >> recursiveRemoveCyclesFrom: aNode [
 
 	(visited includes: aNode) ifTrue: [ ^ self ].
@@ -225,7 +223,7 @@ RSSugiyamaLayout >> recursiveRemoveCyclesFrom: aNode [
 	stack pop
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 RSSugiyamaLayout >> reduceCrossing [
 
 	"Crossing reduction"
@@ -247,14 +245,14 @@ RSSugiyamaLayout >> reduceCrossing [
 					done := false ] ] ] ]
 ]
 
-{ #category : 'real sugiyama' }
+{ #category : #'real sugiyama' }
 RSSugiyamaLayout >> removeCycleFrom: aRSComposite to: aRSComposite2 [
 
 	(self childrenWithoutCyclesFor: aRSComposite) remove: aRSComposite2.
 	(self parentsWithoutCylesFor: aRSComposite2) remove: aRSComposite
 ]
 
-{ #category : 'real sugiyama' }
+{ #category : #'real sugiyama' }
 RSSugiyamaLayout >> removeCycles: aCollection [
 
 	| roots |
@@ -264,7 +262,7 @@ RSSugiyamaLayout >> removeCycles: aCollection [
 	roots do: [ :root | self recursiveRemoveCyclesFrom: root ]
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 RSSugiyamaLayout >> sortBlock [
 	^ self class sortBlock
 ]

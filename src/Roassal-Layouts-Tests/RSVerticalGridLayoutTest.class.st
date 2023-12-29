@@ -1,11 +1,10 @@
 Class {
-	#name : 'RSVerticalGridLayoutTest',
-	#superclass : 'RSLayoutTest',
-	#category : 'Roassal-Layouts-Tests',
-	#package : 'Roassal-Layouts-Tests'
+	#name : #RSVerticalGridLayoutTest,
+	#superclass : #RSLayoutTest,
+	#category : 'Roassal-Layouts-Tests'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 RSVerticalGridLayoutTest >> testBasic [
 
 	RSVerticalCellLayout on: canvas nodes.
