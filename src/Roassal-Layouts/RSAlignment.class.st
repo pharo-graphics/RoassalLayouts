@@ -15,12 +15,14 @@ align bottom.
 - none, you can apply none operation, to skip any alignment.
 "
 Class {
-	#name : #RSAlignment,
-	#superclass : #RSAbstractShapeHandling,
-	#category : 'Roassal-Layouts-PositionAndResize'
+	#name : 'RSAlignment',
+	#superclass : 'RSAbstractShapeHandling',
+	#category : 'Roassal-Layouts-PositionAndResize',
+	#package : 'Roassal-Layouts',
+	#tag : 'PositionAndResize'
 }
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSAlignment >> alignFromBottomUsing: aShape [
 	"The argument aShape is a fix point. It does not move"
 	| topY newY |
@@ -31,7 +33,7 @@ RSAlignment >> alignFromBottomUsing: aShape [
 	]
 ]
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSAlignment >> alignFromCenterUsing: aShape [
 	| topX |
 	topX := aShape position x.
@@ -40,7 +42,7 @@ RSAlignment >> alignFromCenterUsing: aShape [
 	]
 ]
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSAlignment >> alignFromLabelUsing: aRSLabel [
 	| topY yb |
 	topY := aRSLabel encompassingRectangle top.
@@ -50,7 +52,7 @@ RSAlignment >> alignFromLabelUsing: aRSLabel [
 	]
 ]
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSAlignment >> alignFromLeftUsing: aShape [
 	| topX newX |
 	topX := aShape encompassingRectangle topLeft x.
@@ -60,7 +62,7 @@ RSAlignment >> alignFromLeftUsing: aShape [
 	]
 ]
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSAlignment >> alignFromMiddleUsing: aShape [
 	| midY |
 	midY := aShape position y.
@@ -69,7 +71,7 @@ RSAlignment >> alignFromMiddleUsing: aShape [
 	]
 ]
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSAlignment >> alignFromRightUsing: aShape [
 	| topX newX |
 	topX := aShape encompassingRectangle topRight x.
@@ -79,7 +81,7 @@ RSAlignment >> alignFromRightUsing: aShape [
 	]
 ]
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSAlignment >> alignFromTopUsing: aShape [
 	| topY newY |
 	topY := aShape encompassingRectangle topCenter y.
@@ -89,14 +91,14 @@ RSAlignment >> alignFromTopUsing: aShape [
 	]
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSAlignment >> bottom [
 	"Align all the shapes on the bottoms of the shapes"
 	self hasShape ifFalse: [ ^ self ].
 	self alignFromBottomUsing: self bottomMostShape
 ]
 
-{ #category : #'accessing - computed' }
+{ #category : 'accessing - computed' }
 RSAlignment >> bottomMostShape [
 	fixedShape ifNotNil: [ ^ fixedShape ].
 	^ shapes inject: shapes first into: [ :maxS :s |
@@ -104,14 +106,14 @@ RSAlignment >> bottomMostShape [
 					ifTrue: [ s ] ifFalse: [ maxS ] ]
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSAlignment >> center [
 	"Center all the shapes along their X coordinate"
 	self hasShape ifFalse: [ ^ self ].
 	self alignFromCenterUsing: self centerMostShape
 ]
 
-{ #category : #'accessing - computed' }
+{ #category : 'accessing - computed' }
 RSAlignment >> centerMostShape [
 	fixedShape ifNotNil: [ ^ fixedShape ].
 	^ shapes inject: shapes first into: [ :maxS :s |
@@ -119,25 +121,25 @@ RSAlignment >> centerMostShape [
 					ifTrue: [ s ] ifFalse: [ maxS ] ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 RSAlignment >> hasShape [
 	"Return true if some shapes have been set"
 	^ (shapes isNil or: [ shapes isEmpty ]) not
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSAlignment >> label [
 	self hasShape ifFalse: [ ^ self ].
 	self alignFromLabelUsing: self centerMostShape
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSAlignment >> left [
 	self hasShape ifFalse: [ ^ self ].
 	self alignFromLeftUsing: self leftMostShape
 ]
 
-{ #category : #'accessing - computed' }
+{ #category : 'accessing - computed' }
 RSAlignment >> leftMostShape [
 	"Return the shape that is the located the most on the left hand side"
 	fixedShape ifNotNil: [ ^ fixedShape ].
@@ -146,25 +148,25 @@ RSAlignment >> leftMostShape [
 					ifTrue: [ s ] ifFalse: [ maxS ] ]
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSAlignment >> middle [
 	"Center all the shapes along their Y coordinate"
 	self hasShape ifFalse: [ ^ self ].
 	self alignFromMiddleUsing: self centerMostShape
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSAlignment >> none [
 	"just empty alignment, because sometimes, shapes are in the position"
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSAlignment >> right [
 	self hasShape ifFalse: [ ^ self ].
 	self alignFromRightUsing: self rightMostShape
 ]
 
-{ #category : #'accessing - computed' }
+{ #category : 'accessing - computed' }
 RSAlignment >> rightMostShape [
 	"Return the shape that is the located the most on the right hand side"
 	fixedShape ifNotNil: [ ^ fixedShape ].
@@ -173,13 +175,13 @@ RSAlignment >> rightMostShape [
 					ifTrue: [ s ] ifFalse: [ maxS ] ]
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 RSAlignment >> top [
 	self hasShape ifFalse: [ ^ self ].
 	self alignFromTopUsing: self topMostShape
 ]
 
-{ #category : #'accessing - computed' }
+{ #category : 'accessing - computed' }
 RSAlignment >> topMostShape [
 	fixedShape ifNotNil: [ ^ fixedShape ].
 	^ shapes inject: shapes first into: [ :maxS :s |

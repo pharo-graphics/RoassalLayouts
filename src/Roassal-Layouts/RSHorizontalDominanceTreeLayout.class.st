@@ -2,12 +2,14 @@
 Dominance analysis from graph theory allows one to locate subordinated elements in a rooted dependency graph. It identifies the nesting structure for a dependency graph as a dominance horizontal tree
 "
 Class {
-	#name : #RSHorizontalDominanceTreeLayout,
-	#superclass : #RSAbstractHorizontalTreeLayout,
-	#category : 'Roassal-Layouts-Tree'
+	#name : 'RSHorizontalDominanceTreeLayout',
+	#superclass : 'RSAbstractHorizontalTreeLayout',
+	#category : 'Roassal-Layouts-Tree',
+	#package : 'Roassal-Layouts',
+	#tag : 'Tree'
 }
 
-{ #category : #'private - hook' }
+{ #category : 'private - hook' }
 RSHorizontalDominanceTreeLayout >> computeChildrenFor: aNode [
 	^ self childrenWithHighestNestingLevelFor: aNode
 ]

@@ -2,17 +2,19 @@
 This trait provides methods to propagate the vertical gap and horizontal gap
 "
 Trait {
-	#name : #RSTGapsHolder,
-	#category : 'Roassal-Layouts-Traits'
+	#name : 'RSTGapsHolder',
+	#category : 'Roassal-Layouts-Traits',
+	#package : 'Roassal-Layouts',
+	#tag : 'Traits'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSTGapsHolder >> horizontalGap [
 
 	self explicitRequirement
 ]
 
-{ #category : #gap }
+{ #category : 'gap' }
 RSTGapsHolder >> horizontalGapAmong: aShapeParent and: aShape default: anObject [
 
 	| gap |
@@ -23,13 +25,13 @@ RSTGapsHolder >> horizontalGapAmong: aShapeParent and: aShape default: anObject 
 		  do: [ gap ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSTGapsHolder >> verticalGap [
 
 	self explicitRequirement
 ]
 
-{ #category : #gap }
+{ #category : 'gap' }
 RSTGapsHolder >> verticalGapAmong: aShapeParent and: aShape default: anObject [
 
 	| gap |

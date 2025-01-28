@@ -4,59 +4,61 @@ A RSFlowLayout arrange shapes in a rectangle including space (gapSize) between t
 I work with RSAlignment 
 "
 Class {
-	#name : #RSFlowLayout,
-	#superclass : #RSAbstractFlowLayout,
-	#category : 'Roassal-Layouts-Flow'
+	#name : 'RSFlowLayout',
+	#superclass : 'RSAbstractFlowLayout',
+	#category : 'Roassal-Layouts-Flow',
+	#package : 'Roassal-Layouts',
+	#tag : 'Flow'
 }
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSFlowLayout >> alignBottom [
 	self alignment: #bottom
 ]
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSFlowLayout >> alignLabel [
 	"Allow to align labels along their baseline"
 	self alignment: #label
 ]
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSFlowLayout >> alignMiddle [
 	self alignment: #middle
 ]
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSFlowLayout >> alignTop [
 	self alignment: #top
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RSFlowLayout >> initialize [
 	super initialize.
 	self alignTop
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 RSFlowLayout >> isAlignBottom [
 	^ alignment = #bottom
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 RSFlowLayout >> isAlignLabel [
 	^ alignment = #label
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 RSFlowLayout >> isAlignMiddle [
 	^ alignment = #middle
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 RSFlowLayout >> isAlignTop [
 	^ alignment = #top
 ]
 
-{ #category : #hook }
+{ #category : 'hook' }
 RSFlowLayout >> linesFor: shapes [
 	| x y maxLastLineHeight nextElement maxWidthFloat lines currentLine hgap vgap |
 	hgap := self horizontalGap.

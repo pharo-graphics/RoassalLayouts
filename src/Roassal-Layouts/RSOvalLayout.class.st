@@ -2,12 +2,14 @@
 RSOvalLayout is a layout algorithm that arranges shapes in an oval shape around a center point. The objects are evenly spaced considering the semi-major axis (a), semi-minor axis (b) and the number of shapes.
 "
 Class {
-	#name : #RSOvalLayout,
-	#superclass : #RSAbstractCircleLayout,
-	#category : #'Roassal-Layouts-Circle'
+	#name : 'RSOvalLayout',
+	#superclass : 'RSAbstractCircleLayout',
+	#category : 'Roassal-Layouts-Circle',
+	#package : 'Roassal-Layouts',
+	#tag : 'Circle'
 }
 
-{ #category : #hook }
+{ #category : 'hook' }
 RSOvalLayout >> doExecute: shapes [
 
 	| axisA axisB shapeIndex ellipsePoints item shapeCount |
@@ -26,7 +28,7 @@ RSOvalLayout >> doExecute: shapes [
 		shapeIndex := shapeIndex + 1 ].
 ]
 
-{ #category : #utilites }
+{ #category : 'utilites' }
 RSOvalLayout >> getEllipse: pointCount a: axisA b: axisB [
 	| xCenter yCenter deltaT point ellipsePoints |
 	

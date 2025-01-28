@@ -2,46 +2,48 @@
 This layout uses an angle to describe a line where the elements would be placed
 "
 Class {
-	#name : #RSAngleLineLayout,
-	#superclass : #RSAbstractLineLayout,
+	#name : 'RSAngleLineLayout',
+	#superclass : 'RSAbstractLineLayout',
 	#instVars : [
 		'angle',
 		'originalPointer'
 	],
-	#category : 'Roassal-Layouts-Line'
+	#category : 'Roassal-Layouts-Line',
+	#package : 'Roassal-Layouts',
+	#tag : 'Line'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSAngleLineLayout >> angle [
 	^ angle
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSAngleLineLayout >> angle: anAngleInDegrees [
 	angle := anAngleInDegrees
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSAngleLineLayout >> angleByDegrees: aFloat [
 	self angle: aFloat degreesToRadians
 ]
 
-{ #category : #hook }
+{ #category : 'hook' }
 RSAngleLineLayout >> defaultAngle [
 	^ 0
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 RSAngleLineLayout >> defaultPosition [
 	^ 0 @ 0
 ]
 
-{ #category : #hook }
+{ #category : 'hook' }
 RSAngleLineLayout >> deltaFor: anRSShape [
 	^ 0@0
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RSAngleLineLayout >> initialize [
 	super initialize.
 	self
@@ -49,7 +51,7 @@ RSAngleLineLayout >> initialize [
 		originalPointer: self defaultPosition
 ]
 
-{ #category : #hook }
+{ #category : 'hook' }
 RSAngleLineLayout >> movePointer: pointer accordingToFigure: anRSShape [
 	| x y vector normal unit gap |
 	x := angle cos.
@@ -61,19 +63,19 @@ RSAngleLineLayout >> movePointer: pointer accordingToFigure: anRSShape [
 	^ pointer + vector + gap
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSAngleLineLayout >> originalPointer [
 
 	^ originalPointer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSAngleLineLayout >> originalPointer: anObject [
 
 	originalPointer := anObject
 ]
 
-{ #category : #hook }
+{ #category : 'hook' }
 RSAngleLineLayout >> positionOriginalPointer: shapes [
 	^ originalPointer
 ]

@@ -4,14 +4,16 @@ The `RSTreeLayout` class implements a layout algorithm for arranging nodes in a 
 Also known as RSVerticalTreeLayout
 "
 Class {
-	#name : #RSTreeLayout,
-	#superclass : #RSAbstractVerticalTreeLayout,
+	#name : 'RSTreeLayout',
+	#superclass : 'RSAbstractVerticalTreeLayout',
 	#traits : 'RSTLayoutProperties',
 	#classTraits : 'RSTLayoutProperties classTrait',
-	#category : 'Roassal-Layouts-Tree'
+	#category : 'Roassal-Layouts-Tree',
+	#package : 'Roassal-Layouts',
+	#tag : 'Tree'
 }
 
-{ #category : #'private - hook' }
+{ #category : 'private - hook' }
 RSTreeLayout >> computeChildrenFor: aNode [
 	^ self childrenFor: aNode except: alreadyLayoutedNodes
 ]

@@ -2,12 +2,14 @@
 Because class `RSForceBasedLayout` is hard to configure, this object provides a nice default behavior to work with force layout without many configurations
 "
 Class {
-	#name : #RSSimpleForceBasedLayout,
-	#superclass : #RSLayout,
-	#category : 'Roassal-Layouts-Force'
+	#name : 'RSSimpleForceBasedLayout',
+	#superclass : 'RSLayout',
+	#category : 'Roassal-Layouts-Force',
+	#package : 'Roassal-Layouts',
+	#tag : 'Force'
 }
 
-{ #category : #hook }
+{ #category : 'hook' }
 RSSimpleForceBasedLayout >> doExecute: shapes [
 	| layout es |
 	shapes do: [ :n | n updateLinesOFF ].

@@ -2,28 +2,30 @@
 A RSVerticalLineLayout locates all the elements vertically.
 "
 Class {
-	#name : #RSVerticalLineLayout,
-	#superclass : #RSAbstractLineLayout,
-	#category : 'Roassal-Layouts-Line'
+	#name : 'RSVerticalLineLayout',
+	#superclass : 'RSAbstractLineLayout',
+	#category : 'Roassal-Layouts-Line',
+	#package : 'Roassal-Layouts',
+	#tag : 'Line'
 }
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSVerticalLineLayout >> alignCenter [
 	"Make the element centered"
 	self alignment: #center
 ]
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSVerticalLineLayout >> alignLeft [
 	self alignment: #left
 ]
 
-{ #category : #alignment }
+{ #category : 'alignment' }
 RSVerticalLineLayout >> alignRight [
 	self alignment: #right
 ]
 
-{ #category : #hook }
+{ #category : 'hook' }
 RSVerticalLineLayout >> deltaFor: anRSShape [
 	| delta |
 	delta := 0.
@@ -32,12 +34,12 @@ RSVerticalLineLayout >> deltaFor: anRSShape [
 	^delta @ 0
 ]
 
-{ #category : #hook }
+{ #category : 'hook' }
 RSVerticalLineLayout >> movePointer: pointer accordingToFigure: anRSShape [
 	^ pointer x @ (pointer y + anRSShape height + self verticalGap)
 ]
 
-{ #category : #hook }
+{ #category : 'hook' }
 RSVerticalLineLayout >> positionOriginalPointer: aCollectionOfShapes [
 	| maxWidth delta |
 	delta := 0.
