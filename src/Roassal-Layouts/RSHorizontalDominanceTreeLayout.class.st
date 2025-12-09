@@ -11,5 +11,8 @@ Class {
 
 { #category : 'private - hook' }
 RSHorizontalDominanceTreeLayout >> computeChildrenFor: aNode [
-	^ self childrenWithHighestNestingLevelFor: aNode
+
+	^ self
+		  childrenWithHighestNestingLevelFor: aNode
+		  except: alreadyLayoutedNodes
 ]

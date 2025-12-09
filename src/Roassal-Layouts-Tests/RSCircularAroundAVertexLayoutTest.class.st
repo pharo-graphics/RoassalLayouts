@@ -2,12 +2,19 @@
 A RSCircularAroundAVertexLayoutTest is a test class for testing the behavior of RSCircularAroundAVertexLayout
 "
 Class {
-	#name : #RSCircularAroundAVertexLayoutTest,
-	#superclass : #RSLayoutTest,
-	#category : 'Roassal-Layouts-Tests'
+	#name : 'RSCircularAroundAVertexLayoutTest',
+	#superclass : 'RSLayoutTest',
+	#category : 'Roassal-Layouts-Tests',
+	#package : 'Roassal-Layouts-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'utilities' }
+RSCircularAroundAVertexLayoutTest >> apply [
+
+	RSCircularAroundAVertexLayout new on: canvas nodes
+]
+
+{ #category : 'tests' }
 RSCircularAroundAVertexLayoutTest >> testApplyDefaultLayoutOverlapsShapes [
 	| layout first second |
 	layout := RSCircularAroundAVertexLayout new.
@@ -18,7 +25,7 @@ RSCircularAroundAVertexLayoutTest >> testApplyDefaultLayoutOverlapsShapes [
 	self deny: first position equals: second position
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RSCircularAroundAVertexLayoutTest >> testApplyLayoutShouldChangeOldPositions [
 	| layout oldPositions |
 	layout := RSCircularAroundAVertexLayout new.
@@ -27,7 +34,7 @@ RSCircularAroundAVertexLayoutTest >> testApplyLayoutShouldChangeOldPositions [
 	self deny: (canvas nodes collect: #position) equals: oldPositions
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RSCircularAroundAVertexLayoutTest >> testRadius [
 	| layout boundingBox |
 	layout := RSCircularAroundAVertexLayout new.

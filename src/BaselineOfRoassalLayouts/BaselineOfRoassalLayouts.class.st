@@ -3,12 +3,13 @@ Based on roassal
 https://github.com/ObjectProfile/Roassal3
 "
 Class {
-	#name : #BaselineOfRoassalLayouts,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfRoassalLayouts
+	#name : 'BaselineOfRoassalLayouts',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfRoassalLayouts',
+	#package : 'BaselineOfRoassalLayouts'
 }
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfRoassalLayouts >> baseline: spec [
 	<baseline>
 	spec for: #common do: [

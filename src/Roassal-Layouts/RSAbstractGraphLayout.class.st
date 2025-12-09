@@ -115,6 +115,14 @@ RSAbstractGraphLayout >> childrenWithHighestNestingLevelFor: aNode [
 ]
 
 { #category : 'private' }
+RSAbstractGraphLayout >> childrenWithHighestNestingLevelFor: aNode except: aNodeCollection [
+
+	^ (self childrenFor: aNode) select: [ :eachChild |
+			  (aNodeCollection includes: eachChild) not and: [
+				  (self highestNestingParentFor: eachChild) == aNode ] ]
+]
+
+{ #category : 'private' }
 RSAbstractGraphLayout >> clear [
 	cachedParents := nil.
 	cachedChildren := nil.
@@ -140,15 +148,19 @@ RSAbstractGraphLayout >> doNotValidateCycles [
 
 { #category : 'private' }
 RSAbstractGraphLayout >> highestNestingParentFor: aNodeFigure [
+
 	| parents |
-	^self cachedParentsWithHighestNestings
-		at: aNodeFigure
-		ifAbsentPut:
-			[parents := self parentsFor: aNodeFigure.
-			parents isEmpty
-				ifTrue: [0]
-				ifFalse:
-					[parents detectMax: [:eachParent | self nestingLevelFor: eachParent]]]
+	^ self cachedParentsWithHighestNestings
+		  at: aNodeFigure
+		  ifAbsentPut: [
+				  parents := self parentsFor: aNodeFigure.
+				  parents isEmpty
+					  ifTrue: [ 0 ]
+					  ifFalse: [
+							  parents detectMax: [ :eachParent |
+									  self
+										  nestingLevelFor: eachParent
+										  whileProcessing: (IdentitySet with: aNodeFigure) ] ] ]
 ]
 
 { #category : 'accessing' }
@@ -185,14 +197,19 @@ RSAbstractGraphLayout >> maximumRadius: aCollection [
 ]
 
 { #category : 'private' }
-RSAbstractGraphLayout >> nestingLevelFor: aNodeFigure [
-	| parents parentsNesting |
+RSAbstractGraphLayout >> nestingLevelFor: aNodeFigure whileProcessing: aCollectionOfChildren [
+
+	| parents parentsNesting childrenWithNodeFigure |
+	(aCollectionOfChildren includes: aNodeFigure) ifTrue: [ ^ 0 ]. "infinite loop check"
 	parents := self parentsFor: aNodeFigure.
-	parentsNesting := parents
-		collect: [:eachParent | self nestingLevelFor: eachParent].
-	^parentsNesting isEmpty
-		ifTrue: [0]
-		ifFalse: [parentsNesting max + 1]
+	childrenWithNodeFigure := aCollectionOfChildren copyWith: aNodeFigure.
+	parentsNesting := parents collect: [ :eachParent |
+			                  self
+				                  nestingLevelFor: eachParent
+				                  whileProcessing: childrenWithNodeFigure ].
+	^ parentsNesting isEmpty
+		  ifTrue: [ 0 ]
+		  ifFalse: [ parentsNesting max + 1 ]
 ]
 
 { #category : 'hook' }

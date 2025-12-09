@@ -25,6 +25,7 @@ RSAbstractVerticalTreeLayout >> initialize [
 
 { #category : 'private - hook' }
 RSAbstractVerticalTreeLayout >> layout: aNodeCollection atPoint: aPoint atLayer: aNumber [
+
 	| treeSize childrenPosition x y middleOfTree |
 	aNodeCollection isEmpty ifTrue: [ ^ 0 ].
 	x := aPoint x.
@@ -32,22 +33,23 @@ RSAbstractVerticalTreeLayout >> layout: aNodeCollection atPoint: aPoint atLayer:
 	alreadyLayoutedNodes addAll: aNodeCollection.
 	self atLayer: aNumber add: aNodeCollection.
 	aNodeCollection do: [ :each |
-		| children |
-
-		childrenPosition := y + each height + self verticalGap.
-		children := self computeChildrenFor: each.
-
-		treeSize := self
-			layout: children
-			atPoint: x @ childrenPosition
-			atLayer: aNumber + 1.
-		treeSize < each width ifTrue: [
-			self translate: children by: (each width - treeSize) / 2.0 @ 0.
-			treeSize := each width. ].
-		middleOfTree := x + (treeSize / 2.0) - (each width / 2.0).
-		translator translateTopLeftOf: each to: middleOfTree @ y.
-		x := x + treeSize + self horizontalGap.
-		self step ].
+			| children |
+			childrenPosition := y + each height + self verticalGap.
+			children := self computeChildrenFor: each.
+			treeSize := self
+				            layout: children
+				            atPoint: x @ childrenPosition
+				            atLayer: aNumber + 1.
+			treeSize < each width ifTrue: [
+					self
+						translate: children
+						below: (Set with: each)
+						by: each width - treeSize / 2.0 @ 0.
+					treeSize := each width ].
+			middleOfTree := x + (treeSize / 2.0) - (each width / 2.0).
+			translator translateTopLeftOf: each to: middleOfTree @ y.
+			x := x + treeSize + self horizontalGap.
+			self step ].
 	^ x - aPoint x - self horizontalGap
 ]
 
@@ -63,9 +65,13 @@ RSAbstractVerticalTreeLayout >> rearrangeByLayers: aGraph [
 ]
 
 { #category : 'private - hook' }
-RSAbstractVerticalTreeLayout >> translate: aNodeCollection by: delta [
+RSAbstractVerticalTreeLayout >> translate: aNodeCollection below: aSetOfParents by: delta [
+
 	aNodeCollection ifEmpty: [ ^ self ].
 	aNodeCollection do: [ :each |
-		each translateBy: delta.
-		self translate: (self childrenFor: each) by: delta]
+			each translateBy: delta.
+			self
+				translate: (self childrenFor: each) \ aSetOfParents
+				below: (aSetOfParents copyWith: each)
+				by: delta ]
 ]
